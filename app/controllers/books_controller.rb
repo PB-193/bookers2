@@ -1,8 +1,15 @@
 class BooksController < ApplicationController
   def show
+    @books = Book.all
+    @book = Book.find(params[:id])
+    @users = @book.users
+
   end
 
   def index
+    @books = Book.all
+    @book = Book.new
+    @user = current_user
   end
 
   def edit
@@ -23,5 +30,17 @@ class BooksController < ApplicationController
   end
 
   def destroy
+    book = Book.find(params[:id])
+    if book.destroy
+      flash[:notice] = "destroy successfully"
+      redirect_to "/books"
+    end    
   end
+  
+  private
+  # ストロングパラメータ
+  def book_params
+    params.require(:book).permit(:title, :body, :user_id)
+  end
+  
 end

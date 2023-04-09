@@ -1,2 +1,63 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div>
+  <h2>User info</h2>
+  <p><%= image_tag 'no_images.jpg'  %></p>
+  <table>
+    <tr>
+      <th>name</th>
+      <th><%= @user.name  %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= @user.introduction %></th>
+    </tr>
+    <th>
+    <%= link_to "edit",edit_user_path %>
+    </th>
+  </table>
+  
+</div>
+<br></br>
+<div>
+  <h2>New book</h2>
+   <%= form_with model: @book,url: "/books", method: :post do |f| %>
+    <div class="books-text">
+      <div class="title-box">
+        <p>Title</p>
+        <p>
+          <%= f.text_field:title %>
+        </p>
+      </div>
+      <div class="body-box">
+        <p>Opinion</p>
+        <p>
+          <%= f.text_area:body %>
+        </p>
+      </div>
+      <div class="btn-box">
+        <%= f.submit "Create Book" %>
+      </div>
+    </div>
+    <% end %>
+</div>
+<br></br>
+<h2>Books</h2>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Opinion</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @books.each do |book| %>
+      <tr>
+       <td><%= image_tag 'no_images.jpg' %></td>
+       <td><%= book.title %></td>
+       <td><%= book.body %></td>
+      </tr>
+      <% end %>
+    </tbody>
+    
+  </table>
