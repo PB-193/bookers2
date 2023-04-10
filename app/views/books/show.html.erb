@@ -1,0 +1,8 @@
+<%= render 'list', {user: @user,book: @book} %>
+
+<h2>Book detail</h2>
+<p>Title:<%= @book1.title  %></p>
+<p>Body:<%= @book1.body %></p>
+
+<%= link_to "Edit",edit_book_path(@book1.id) %>
+<%= link_to "Destroy",%>
