@@ -1,8 +1,17 @@
 <%= render 'list', {user: @user,book: @book} %>
 
 <h2>Book detail</h2>
-<p>Title:<%= @book1.title  %></p>
-<p>Body:<%= @book1.body %></p>
-
-<%= link_to "Edit",edit_book_path(@book1.id) %>
-<%= link_to "Destroy",%>
+<table>
+<tr>
+  <tr>
+    <td><%= image_tag @book1.user.get_profile_image(100,100) %></td>
+    <td></td>
+    <td><%= @book1.title  %></td>
+    <td><%= @book1.body %></td>
+    <td><%= link_to "Edit",edit_book_path(@book1.id),class:"btn btn-info" %></td>
+    <td><%= link_to "Destroy",book_path(@book1.id),class:"btn btn-info",method: :delete,"data-confirm" => "本当に削除しますか？" %></td>
+  </tr>
+  <tr>
+    <td>name</td>
+  </tr>
+</table>
