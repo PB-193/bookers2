@@ -1,4 +1,4 @@
-<div>
+<div class="col-md-4">
   <h2>User info</h2>
   <div>
   <% if user.profile_image.attached? %>
@@ -22,10 +22,23 @@
   </table>
   
 </div>
-<br></br>
+
 <div>
   <h2>New book</h2>
    <%= form_with model: book,url: "/books", method: :post do |f| %>
+   
+    <div class="error-message">  
+      <% if book.errors.any? %>
+        <%= book.errors.count %> error has occurred
+        <ul>
+          <% book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>   
+
+   
     <div class="books-text">
       <div class="title-box">
         <p>Title</p>
