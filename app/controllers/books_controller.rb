@@ -13,6 +13,10 @@ class BooksController < ApplicationController
   end
 
   def edit
+    book = Book.find(params[:id])
+    unless book.user.id == current_user.id
+      redirect_to books_path
+    end
     @book = Book.find(params[:id])
   end
 
@@ -31,7 +35,7 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     if @book.save
       flash[:notice] = "create successfully"
-      redirect_to "/books/"
+      redirect_to "/books/#{@book.id}"
     else
       @books = Book.all
       @user = current_user

@@ -1,31 +1,6 @@
-<div class="col-md-4">
-  <h2>User info</h2>
   <div>
-  <% if user.profile_image.attached? %>
-    <%= image_tag user.profile_image, size: "100x100" %>
-  <% else %>
-    <%= image_tag 'no_images.jpg', size: "100x100" %>
-  <% end %>
-  </div>
-  <table>
-    <tr>
-      <th>name</th>
-      <th><%= user.name  %></th>
-    </tr>
-    <tr>
-      <th>introduction</th>
-      <th><%= user.introduction %></th>
-    </tr>
-    <th>
-    <%= link_to "edit",edit_user_path(user) %>
-    </th>
-  </table>
-  
-</div>
-
-<div>
-  <h2>New book</h2>
-   <%= form_with model: book,url: "/books", method: :post do |f| %>
+    <h2>New book</h2>
+    <%= form_with model: book,url: "/books", method: :post do |f| %>
    
     <div class="error-message">  
       <% if book.errors.any? %>
@@ -52,9 +27,9 @@
           <%= f.text_area:body %>
         </p>
       </div>
-      <div class="btn-box">
-        <%= f.submit "Create Book" %>
+      <div class="btn-box" >
+        <%= f.submit "Create Book", class:"btn btn-success" %>
       </div>
     </div>
     <% end %>
-</div>
+  </div>

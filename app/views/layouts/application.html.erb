@@ -22,44 +22,44 @@
     <ul class="navbar-nav ml-auto ">
     <% if user_signed_in? %>
       <li class="nav-link text-align ">
-        <%= link_to root_path do %>
+        <%= link_to user_path(current_user.id), class:"text-white" do %>
           <i class="fas fa-home"></i><span> Home</span>
         <% end %>
       </li>
       <li class="nav-link text-align">
-        <%= link_to users_path do %>
+        <%= link_to users_path, class:"text-white" do %>
           <i class="fas fa-users"></i><span> Users</span>
         <% end %>
       </li>
       <li class="nav-link text-align">
-        <%= link_to books_path do %>
+        <%= link_to books_path, class:"text-white" do %>
           <i class="fas fa-book-open"></i><span> Books</span>
         <% end %>
       </li>
       <li class="nav-link text-align">
-        <%= link_to destroy_user_session_path, method: :delete do %>
+        <%= link_to destroy_user_session_path, method: :delete, class:"text-white" do %>
           <i class="fas fa-sign-out-alt"></i><span> Log out</span>
         <% end %>
 
       </li>
     <% else %>
-      <li class="nav-link text-align navbar-brand">
-        <%= link_to root_path do %>
+      <li class="nav-link text-align" >
+        <%= link_to root_path , class:"text-white" do  %>
           <i class="fas fa-home"></i><span> Home</span>
         <% end %>
       </li>
       <li class="nav-link text-align">
-        <%= link_to about_path do %>
+        <%= link_to about_path , class:"text-white" do %>
           <i class="fas fa-link"></i><span> About</span>
         <% end %>
       </li>
       <li class="nav-link text-align">
-        <%= link_to new_user_registration_path do %>
-          <i class="fas fa-user-plus"></i><span> Sign Up</span>
+        <%= link_to new_user_registration_path , class:"text-white" do %>
+          <i class="fas fa-user-plus"></i><span> Sign up</span>
         <% end %>
       </li>
       <li class="nav-link text-align">
-        <%= link_to new_user_session_path do %>
+        <%= link_to new_user_session_path, class:"text-white" do %>
           <i class="fas fa-sign-in-alt"></i><span> Log in</span>
         <% end %>
       </li>
@@ -71,14 +71,14 @@
   <main>
   <%= yield %>
   </main>
-  <footer>
-    <div>
-      <div>
-        <div>
-          <p>CopyRight Infratop.inc</p>
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
   </body>
 </html>
