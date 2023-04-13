@@ -1,5 +1,9 @@
 <div>
-  <%= flash[:notice] %>
+  <% if flash[:notice] %>
+  <div class="btn-block btn btn-success">
+    <%= flash[:notice]%>
+  </div>
+  <% end %>
 </div>
 
 <div class="container mt-3">

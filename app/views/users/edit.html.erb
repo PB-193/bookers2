@@ -10,10 +10,12 @@
  
      <div class="error-message">  
       <% if @user.errors.any? %>
+      <ul class="text-danger">
         <%= @user.errors.count %> error has occurred
+      </ul>
         <ul>
         <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li class="text-danger"><%= message %></li>
         <% end %>
         </ul>
       <% end %>

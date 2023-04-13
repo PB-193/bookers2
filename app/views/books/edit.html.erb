@@ -9,10 +9,12 @@
     <div class="books-text">
       <div class="error-message">  
         <% if @book.errors.any? %>
+        <ul class="text-danger">
           <%= @book.errors.count %> error has occurred
+        </ul>
           <ul>
           <% @book.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+            <li class="text-danger"><%= message %></li>
           <% end %>
           </ul>
         <% end %>
