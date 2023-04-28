@@ -7,6 +7,7 @@
     
     <%= form_with model: @book do |f| %>
     <div class="books-text">
+      
       <div class="error-message">  
         <% if @book.errors.any? %>
         <ul class="text-danger">
@@ -18,7 +19,7 @@
           <% end %>
           </ul>
         <% end %>
-     </div>
+      </div>
       
       <div class="title-box">
         <p>Title</p>
